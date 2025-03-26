@@ -35,6 +35,8 @@ class FacialExpressionRecognizer:
             if not ret:
                 break
 
+            frame = cv2.flip(frame,1)
+            
             faces = self.detect_face(frame)
             for (x, y, w, h) in faces:
                 cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
